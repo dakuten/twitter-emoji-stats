@@ -1,6 +1,6 @@
 # Twitter Emoji Stats
 
-** !!! VERY WIP !!! **
+__!!! VERY WIP !!!__
 
 
 Functions that help you gather statistics about which emojis you use on Twitter.
