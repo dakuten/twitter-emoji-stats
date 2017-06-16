@@ -25,7 +25,7 @@ def get_ZWJseq(ustring):
     correctzwj = []
 
     for zwjseqmatch in R_zwjseq.finditer(ustring):
-        zwjseq = zwjseq[0]
+        zwjseq = zwjseqmatch[0]
         if is_valid_zwj_sequence(zwjseq):
             retstring = retstring[:zwjseqmatch.start()]+retstring[:zwjseqmatch.end()]
             correctzwj.append(zwjseq)
