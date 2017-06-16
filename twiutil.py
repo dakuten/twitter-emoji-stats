@@ -9,12 +9,15 @@
 import twitter
 
 def get_last_tweets_from_user(api, user, nb, block_size=200):
+    if nb<0:
+        nb-=block_size
+
     tl = api.GetUserTimeline(screen_name=user, count=min(nb,block_size))
     last_id = tl[-1].id
     block_size=min(len(tl),block_size)
     nb-=block_size
     yield tl
-    while nb > 0:
+    while (nb > 0) or (nb < -block_size):
         tl = api.GetUserTimeline(screen_name=user, count=min(nb,block_size), max_id=last_id-1)
         if len(tl)==0:
             break
